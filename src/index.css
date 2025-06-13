@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/* Custom Font Faces */
+@font-face {
+  font-family: 'NHaasGroteskTXPro';
+  src: url('./assets/fonts/NHaasGroteskTXPro-55Rg.woff2') format('woff2'),
+       url('./assets/fonts/NHaasGroteskTXPro-55Rg.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NHaasGroteskTXPro';
+  src: url('./assets/fonts/NHaasGroteskTXPro-65Md.woff2') format('woff2'),
+       url('./assets/fonts/NHaasGroteskTXPro-65Md.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NHaasGroteskTXPro';
+  src: url('./assets/fonts/NHaasGroteskTXPro-75Bd.woff2') format('woff2'),
+       url('./assets/fonts/NHaasGroteskTXPro-75Bd.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Base styles */
+body {
+  font-family: 'NHaasGroteskTXPro', system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Custom utility classes for font weights */
+.font-regular {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-bold {
+  font-weight: 700;
+}
