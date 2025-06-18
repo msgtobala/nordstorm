@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF, Environment } from '@react-three/drei';
 import * as THREE from 'three';
@@ -35,10 +35,35 @@ interface ThreeDModelProps {
 }
 
 const ThreeDModel: React.FC<ThreeDModelProps> = () => {
+  const controlsRef = useRef<any>(null);
+
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      // Only zoom if Ctrl or Meta (Cmd) is pressed
+      if (!(e.ctrlKey || e.metaKey)) {
+        // Let the page scroll
+        return;
+      }
+      // Otherwise, allow OrbitControls to handle zoom
+      // Prevent page scroll
+      e.preventDefault();
+    };
+
+    const canvas = document.querySelector('canvas');
+    if (canvas) {
+      canvas.addEventListener('wheel', handleWheel, { passive: false });
+    }
+    return () => {
+      if (canvas) {
+        canvas.removeEventListener('wheel', handleWheel);
+      }
+    };
+  }, []);
+
   return (
-    <>
+    <div style={{ width: '100%', height: '100%' }}>
       <Canvas
-        style={{ background: 'unset' }}
+        style={{ width: '100%', height: '100%' }}
         camera={{ position: [0, 1.6, 4.5], fov: 35, near: 0.1, far: 1000 }}
         shadows
         gl={{
@@ -67,8 +92,9 @@ const ThreeDModel: React.FC<ThreeDModelProps> = () => {
         <SuitcaseModel />
 
         <OrbitControls
+          ref={controlsRef}
           enablePan={false}
-          enableZoom={true}
+          enableZoom={false}
           enableRotate={true}
           minDistance={2.5}
           maxDistance={5}
@@ -80,7 +106,7 @@ const ThreeDModel: React.FC<ThreeDModelProps> = () => {
           enableDamping={true}
         />
       </Canvas>
-    </>
+    </div>
   );
 };
 
