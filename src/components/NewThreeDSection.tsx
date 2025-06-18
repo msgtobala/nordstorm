@@ -82,16 +82,15 @@ const NewThreeDSection: React.FC = () => {
         {/* 3D Model Container - Centered */}
         <div className="flex justify-center mb-8">
           <div
-            className="relative w-full flex justify-center items-center"
+            // className="w-full flex justify-center items-center"
             style={{
               maxWidth: '520px',
-              minHeight: '600px',
+              minHeight: '450px',
               width: '100%',
               height: 'auto',
-              // background: 'linear-gradient(1.55deg, rgba(235, 234, 227, 0.48) -10.93%, rgba(255, 255, 255, 0.8) 115.51%)'
             }}
           >
-            <ThreeDModel className="w-full h-full" />
+            <ThreeDModel />
           </div>
         </div>
 

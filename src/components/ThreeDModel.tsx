@@ -34,9 +34,9 @@ interface ThreeDModelProps {
   className?: string;
 }
 
-const ThreeDModel: React.FC<ThreeDModelProps> = ({ className = '' }) => {
+const ThreeDModel: React.FC<ThreeDModelProps> = () => {
   return (
-    <div className={`w-full h-full ${className}`}>
+    <>
       <Canvas
         style={{ background: 'unset' }}
         camera={{ position: [0, 1.6, 4.5], fov: 35, near: 0.1, far: 1000 }}
@@ -80,7 +80,7 @@ const ThreeDModel: React.FC<ThreeDModelProps> = ({ className = '' }) => {
           enableDamping={true}
         />
       </Canvas>
-    </div>
+    </>
   );
 };
 
