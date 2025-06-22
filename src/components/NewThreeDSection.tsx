@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ThreeDModel from './ThreeDModel';
 import goldVariant from '../assets/images/hero/variants/gold.png';
-import trackImage from '../assets/images/3d-section/track.png';
+// import trackImage from '../assets/images/3d-section/track.png';
 
 interface ColorOption {
   id: string;
